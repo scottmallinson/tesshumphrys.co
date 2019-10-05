@@ -1,4 +1,4 @@
-const version = 'V0.08';
+const version = 'V0.09';
 const staticCacheName = `${version}staticfiles`;
 
 // eslint-disable-next-line no-restricted-globals
