@@ -6,11 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/scottmallinson/tesshumphrys.co.git"
-  },
-  "author": "",
+  "repository": "git+https://github.com/scottmallinson/tesshumphrys.co.git",
+  "author": "Scott Mallinson <scott@scottmallinson.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/scottmallinson/tesshumphrys.co/issues"
