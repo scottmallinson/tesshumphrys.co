@@ -37,6 +37,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+  <link rel="preload" href="img/tess.jpg" as="image" fetchpriority="high">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Source+Serif+Pro&display=swap" as="style">
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
@@ -173,6 +176,20 @@
         max-width: 100%;
       }
     }
+
+    @media print {
+      header {
+        background-image: none;
+      }
+
+      a {
+        text-decoration: underline;
+      }
+
+      a[href^="http"]:after {
+        content: " (" attr(href) ")";
+      }
+    }
   </style>
 </head>
 
@@ -182,9 +199,9 @@
     <h2>Travel writer with a focus on China</h2>
   </header>
   <main>
-    <section>
+    <section itemscope itemtype="http://schema.org/Person">
       <h3>About me</h3>
-      <p>Having spent many years living in the country, I have written travel content about the People's Republic of China for a number of print and digital publications.</p>
+      <p itemprop="description">Having spent many years living in the country, I have written travel content about the People's Republic of China for a number of print and digital publications.</p>
     </section>
     <section>
       <h3>Published work</h3>
@@ -323,16 +340,16 @@
           class="icon" href="https://www.linkedin.com/in/tesshumphrys/" rel="me">LinkedIn</a>.</p>
     </section>
   </main>
-  <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro&display=swap" rel="stylesheet preload"
-    as="style">
-  <script>
-    let links = document.getElementsByClassName('icon')
-    links = Array.from(links)
-    links.map(link =>
-      link.setAttribute("style", `background: url(https://www.google.com/s2/favicons?domain=${link.hostname}) left center no-repeat; padding-left: 20px`)
-    )
+  <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro&display=swap" rel="stylesheet">
+  <script defer>
+    const links = document.querySelectorAll('.icon');
+    for (const link of links) {
+      const hostname = link.hostname;
+      link.style.background = `url(https://www.google.com/s2/favicons?domain=${hostname}) left center no-repeat`;
+      link.style.paddingLeft = '20px';
+    }
   </script>
-  <script>
+  <script defer>
     if (navigator.serviceWorker) {
       navigator.serviceWorker.register('/serviceworker.js');
     }
